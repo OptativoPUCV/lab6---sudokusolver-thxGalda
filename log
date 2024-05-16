@@ -25,3 +25,18 @@ sudoku.c:49:17: error: ‘i’ is used uninitialized [-Werror=uninitialized]
 cc1: all warnings being treated as errors
 Compilation failed
 403a647
+Thu 16 May 2024 07:28:15 PM UTC: 
+ sudoku.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:54:17: error: ‘n’ is a pointer; did you mean to use ‘->’?
+   54 |             if(n.sudo[i][j] == k){
+      |                 ^
+      |                 ->
+sudoku.c:60:17: error: ‘n’ is a pointer; did you mean to use ‘->’?
+   60 |             if(n.sudo[j][i] != k){
+      |                 ^
+      |                 ->
+Compilation failed
+e8cd1f9

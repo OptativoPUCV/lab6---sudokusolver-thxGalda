@@ -51,13 +51,13 @@ int is_valid(Node* n){
       }
          for (k = 1; k < 10; k++)
          {
-            if(n->sudo[i][j] == k){
+            if(n.sudo[i][j] == k){
                if(valid[k-1] == 0){
                   valid[k] = 1;
                }
                else return 0;
             }
-            if(n->sudo[j][i] != k){
+            if(n.sudo[j][i] != k){
                if(valid[k-1] == 0){
                   valid[k] = 1;
                }
