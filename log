@@ -272,3 +272,9 @@ Thu 16 May 2024 08:20:13 PM UTC:
  tests:  3|4
 total_score: 20/70
 bd79e8e
+Thu 16 May 2024 08:24:34 PM UTC: 
+ sudoku.c | 12 ++++--------
+ 1 file changed, 4 insertions(+), 8 deletions(-)
+ tests:  5|3
+total_score: 35/70
+458c52c
