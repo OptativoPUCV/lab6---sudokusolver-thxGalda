@@ -40,3 +40,26 @@ sudoku.c:60:17: error: ‘n’ is a pointer; did you mean to use ‘->’?
       |                 ->
 Compilation failed
 e8cd1f9
+Thu 16 May 2024 07:28:30 PM UTC: 
+ sudoku.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:54:26: error: array subscript 9 is above array bounds of ‘int[9]’ [-Werror=array-bounds]
+   54 |             if(n->sudo[i][j] == k){
+      |                ~~~~~~~~~~^~~
+sudoku.c:7:8: note: while referencing ‘sudo’
+    7 |    int sudo[9][9];
+      |        ^~~~
+sudoku.c:60:23: error: array subscript 9 is above array bounds of ‘int[9][9]’ [-Werror=array-bounds]
+   60 |             if(n->sudo[j][i] != k){
+      |                ~~~~~~~^~~
+sudoku.c:7:8: note: while referencing ‘sudo’
+    7 |    int sudo[9][9];
+      |        ^~~~
+sudoku.c:49:17: error: ‘i’ is used uninitialized [-Werror=uninitialized]
+   49 |    for(j = 0; i < 9; i++){
+      |               ~~^~~
+cc1: all warnings being treated as errors
+Compilation failed
+d3dd11a
