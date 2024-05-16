@@ -63,3 +63,23 @@ sudoku.c:49:17: error: ‘i’ is used uninitialized [-Werror=uninitialized]
 cc1: all warnings being treated as errors
 Compilation failed
 d3dd11a
+Thu 16 May 2024 07:32:03 PM UTC: 
+ sudoku.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:54:26: error: array subscript 9 is above array bounds of ‘int[9]’ [-Werror=array-bounds]
+   54 |             if(n->sudo[i][j] == k){
+      |                ~~~~~~~~~~^~~
+sudoku.c:7:8: note: while referencing ‘sudo’
+    7 |    int sudo[9][9];
+      |        ^~~~
+sudoku.c:60:23: error: array subscript 9 is above array bounds of ‘int[9][9]’ [-Werror=array-bounds]
+   60 |             if(n->sudo[j][i] != k){
+      |                ~~~~~~~^~~
+sudoku.c:7:8: note: while referencing ‘sudo’
+    7 |    int sudo[9][9];
+      |        ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+ce85ba2
