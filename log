@@ -2,3 +2,26 @@ Thu 16 May 2024 07:04:03 PM UTC:
  tests:  0|5
 total_score: 0/70
 2f050f1
+Thu 16 May 2024 07:27:54 PM UTC: 
+ sudoku.c | 22 +++++++++++++++++++++-
+ 1 file changed, 21 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:54:26: error: array subscript 9 is above array bounds of ‘int[9]’ [-Werror=array-bounds]
+   54 |             if(n->sudo[i][j] == k){
+      |                ~~~~~~~~~~^~~
+sudoku.c:7:8: note: while referencing ‘sudo’
+    7 |    int sudo[9][9];
+      |        ^~~~
+sudoku.c:60:23: error: array subscript 9 is above array bounds of ‘int[9][9]’ [-Werror=array-bounds]
+   60 |             if(n->sudo[j][i] != k){
+      |                ~~~~~~~^~~
+sudoku.c:7:8: note: while referencing ‘sudo’
+    7 |    int sudo[9][9];
+      |        ^~~~
+sudoku.c:49:17: error: ‘i’ is used uninitialized [-Werror=uninitialized]
+   49 |    for(j = 0; i < 9; i++){
+      |               ~~^~~
+cc1: all warnings being treated as errors
+Compilation failed
+403a647
