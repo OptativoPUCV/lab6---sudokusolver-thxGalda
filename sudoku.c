@@ -96,8 +96,8 @@ List *get_adj_nodes(Node *n) {
         if(n->sudo[i][j] == 0){
            new_node = copy(n);
            new_node->sudo[i][j] = k;
-           pushBack(list, new_node);
            k++;
+           pushBack(list, new_node);
         }
      }
   }
