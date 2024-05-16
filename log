@@ -255,3 +255,14 @@ test.c:7:8: error: ‘_strdup’ defined but not used [-Werror=unused-function]
 cc1: all warnings being treated as errors
 Compilation failed
 956f9dd
+Thu 16 May 2024 08:19:34 PM UTC: 
+ sudoku.c | 3 +++
+ 1 file changed, 3 insertions(+)
+In file included from test.c:5:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:93:13: error: unused variable ‘new_node’ [-Werror=unused-variable]
+   93 |       Node *new_node = createNode();
+      |             ^~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+62161c8

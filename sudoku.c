@@ -94,17 +94,20 @@ List *get_adj_nodes(Node *n) {
       for (j = 0; j < 9; j++){
          if(n->sudo[i][j] == 0){
                int startRow = (i / 3) * 3;
-                 int startCol = (j / 3) * 3;
-                 for(int row = startRow; row < startRow + 3; row++){
-                    for(int col = startCol; col < startCol + 3; col++){
-                       Node *new_node = copy(n);
-                       for(k=1;k<10;k++){
-                          new_node->sudo[row][col] = k;
-                          if(is_valid(new_node)){
-                             pushBack(list, new_node);
+               int startCol = (j / 3) * 3;
+               for(int row = startRow; row < startRow + 3; row++){
+                  for(int col = startCol; col < startCol + 3; col++){
+                     Node *new_node = copy(n);
+                     for(k=1;k<10;k++){
+                        new_node->sudo[row][col] = k;
+                        if(is_valid(new_node)){
+                           pushBack(list, new_node);
+                        }
+                     }
+                  }
+               }
             }
-         }
-      }
+         }   
    }
   return list;
 }
