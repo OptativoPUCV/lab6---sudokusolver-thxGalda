@@ -83,3 +83,22 @@ sudoku.c:7:8: note: while referencing ‘sudo’
 cc1: all warnings being treated as errors
 Compilation failed
 ce85ba2
+Thu 16 May 2024 07:34:42 PM UTC: 
+ sudoku.c | 40 +++++++++++++++++++++++++++++++---------
+ 1 file changed, 31 insertions(+), 9 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:48:15: error: unused variable ‘k’ [-Werror=unused-variable]
+   48 |       int i,j,k;
+      |               ^
+sudoku.c: In function ‘is_valid’:
+sudoku.c:91:1: error: control reaches end of non-void function [-Werror=return-type]
+   91 | }
+      | ^
+At top level:
+sudoku.c:47:8: error: ‘is_valid’ defined but not used [-Werror=unused-function]
+   47 |    int is_valid(Node* n){
+      |        ^~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+ea60cc7
