@@ -99,6 +99,7 @@ List *get_adj_nodes(Node *n) {
               if(is_valid(new_node)){
                    pushBack(list, new_node);
                 }
+               else free(new_node);
            }
         }
      }
