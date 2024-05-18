@@ -128,9 +128,10 @@ Node *DFS(Node *initial, int *cont) {
       return aux;
     }
     List *list = get_adj_nodes(aux);
-    while(next(list) != NULL){
+    while(first(list) != NULL){
       Node *aux2 = first(list);
       push(S, aux2);
+      popFront(list);
       aux2 = next(list);
     }
     free(initial);
