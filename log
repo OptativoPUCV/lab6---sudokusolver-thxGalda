@@ -316,3 +316,14 @@ Sat 18 May 2024 01:11:47 AM UTC:
  tests:  7|1
 total_score: 55/70
 806ea1c
+Sat 18 May 2024 01:37:22 AM UTC: 
+ sudoku.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:130:11: error: unused variable ‘list’ [-Werror=unused-variable]
+  130 |     List *list = get_adj_nodes(aux);
+      |           ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+67affea
