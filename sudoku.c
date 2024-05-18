@@ -105,7 +105,7 @@ List* get_adj_nodes(Node* n){
              }
           }
        }
-    return list;
+  return list;
 }
 
 int is_final(Node *n) { 
@@ -115,10 +115,29 @@ int is_final(Node *n) {
               return 0;
         }
      }
-      return 1;
+  return 1;
 }
 
-Node *DFS(Node *initial, int *cont) { return NULL; }
+Node *DFS(Node *initial, int *cont) { 
+  Stack *S = createStack();
+  push(S, initial);
+  while (first(S) != NULL){
+    Node *n = first(S);
+    if (is_final(n)){
+      return n;
+    }
+    pop(S);
+    List *list = get_adj_nodes(n);
+    Node *aux = first(list);
+    while (aux != NULL){
+      push(S, aux);
+      aux = next(list);
+    }
+    free(n);
+    (*cont)++;
+  }
+  return NULL; 
+}
 
 /*
 int main( int argc, char *argv[] ){
@@ -131,26 +150,5 @@ int main( int argc, char *argv[] ){
   print_node(final);
 
   return 0;
-
-  List *list = createList();
-    int i,j,k;
-     for (i = 0; i < 9; i++){
-        Node *new_node = createNode(); 
-        for (j = 0; j < 9; j++){
-           if(n->sudo[i][j] == 0){
-              for(k=1;k<10;k++){
-                 new_node = copy(n);
-                 new_node->sudo[i][j] = k;
-                 if(is_valid(new_node)){
-                    pushBack(list, new_node);
-                    }
-                    else free(new_node);
-                }
-             }
-          }
-       }
-    return list;
-  }
-
 
 }*/
