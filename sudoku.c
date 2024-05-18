@@ -131,7 +131,7 @@ Node *DFS(Node *initial, int *cont) {
     while(first(list) != NULL){
       Node *aux2 = first(list);
       push(S, aux2);
-      popFront(list);
+      pop(list);
       aux2 = next(list);
     }
     free(initial);
