@@ -106,7 +106,6 @@ List* get_adj_nodes(Node* n){
           }
        }
     return list;
-  }
 }
 
 int is_final(Node *n) { 
