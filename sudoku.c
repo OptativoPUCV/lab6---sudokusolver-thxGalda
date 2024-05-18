@@ -42,49 +42,49 @@ void print_node(Node *n) {
   printf("\n");
 }
 
-int is_valid(Node *n) {
-  int i, j;
-  for (i = 0; i < 9; i++) {
-    int valid[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    for (j = 0; j < 9; j++) {
-      if (n->sudo[i][j] != 0) {
-        if (valid[n->sudo[i][j]] == 0) {
-          valid[n->sudo[i][j]] = 1;
-        } else
-          return 0;
-      }
-    }
-  }
-
-  for (i = 0; i < 9; i++) {
-    int valid[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    for (j = 0; j < 9; j++) {
-      if (n->sudo[j][i] != 0) {
-        if (valid[n->sudo[j][i]] == 0) {
-          valid[n->sudo[j][i]] = 1;
-        } else
-          return 0;
-      }
-    }
-  }
-
-  for (int block = 0; block < 9; block++) {
-    int valid[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    for (i = 0; i < 3; i++) {
-      for (j = 0; j < 3; j++) {
-        int x = (block / 3) * 3 + i;
-        int y = (block % 3) * 3 + j;
-        if (n->sudo[x][y] != 0) {
-          if (valid[n->sudo[x][y]] == 0) {
-            valid[n->sudo[x][y]] = 1;
-          } else
+int is_valid(Node* n){
+   //verificar filas, columnas y matrices de 3x3
+   for(int i = 0; i < 9; i++){
+      int visto[10] = {0};
+      for(int j = 0; j < 9; j++){
+         if(n->sudo[i][j] != 0){
+         if(visto[n->sudo[i][j]] == 1) 
             return 0;
-        }
+         else visto[n->sudo[i][j]] = 1;
+         }
       }
-    }
-  }
-  return 1;
+   }
+
+   for(int j = 0; j < 9; j++){
+      int visto[10] = {0};
+      for(int i = 0; i < 9; i++){
+         if(n->sudo[i][j] != 0){
+         if(visto[n->sudo[i][j]] == 1) 
+            return 0;
+         else visto[n->sudo[i][j]] = 1;
+         }
+      }
+   }
+
+   for(int fila = 0; fila < 9; fila+=3){
+      for(int col = 0; col < 9; col +=3){
+         int visto[10] = {0};
+         for(int i = fila; i < fila+3; i++){
+            for(int j = col; j < col+3; j++){
+                  if(n->sudo[i][j] != 0){
+                     if(visto[n->sudo[i][j]] == 1)
+                        return 0;
+                     else 
+                        visto[n->sudo[i][j]] = 1;
+                  }
+            }
+         }
+      }
+   }
+
+    return 1;
 }
+
 
 List* get_adj_nodes(Node* n){
   List *list = createList();
@@ -93,7 +93,7 @@ List* get_adj_nodes(Node* n){
         Node *new_node = createNode(); 
         for (j = 0; j < 9; j++){
            if(n->sudo[i][j] == 0){
-              for(k=1;k<10;k++){
+              for(k=1;k<=9;k++){
                  new_node = copy(n);
                  new_node->sudo[i][j] = k;
                  if(is_valid(new_node)){
