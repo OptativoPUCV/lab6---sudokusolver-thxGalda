@@ -127,7 +127,6 @@ Node *DFS(Node *initial, int *cont) {
     if(is_final(aux)){
       return aux;
     }
-    List *list = get_adj_nodes(aux);
     
     free(initial);
     *cont = *cont + 1;
