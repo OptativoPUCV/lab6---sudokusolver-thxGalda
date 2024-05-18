@@ -123,7 +123,7 @@ Node* DFS(Node* n, int* cont) {
     push(S, n);
     *cont = 0;
 
-    while(first(S) != NULL){
+    while(get_size(S) != 0){
         Node* aux = first(S);
         pop(S);
 
