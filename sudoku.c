@@ -118,27 +118,32 @@ int is_final(Node *n) {
   return 1;
 }
 
-Node *DFS(Node *initial, int *cont) { 
-  Stack *S = createStack();
-  push(S, initial);
-  while(first(S) != NULL){
-    Node *aux = first(S);
-    pop(S);
-    if(is_final(aux)){
-      return aux;
+Node* DFS(Node* n, int* cont) {
+    Stack* S = createStack();
+    push(S, n);
+
+    while(first(S) != NULL){
+        Node* aux = first(S);
+        pop(S);
+
+        if(is_final(aux)){
+            return aux;
+        }
+
+        List* list = get_adj_nodes(aux);
+        while(first(list) != NULL){
+            Node* aux2 = first(list);
+            pop(list);
+            push(S, aux2);
+        }
+
+        free(aux);
+        *cont = *cont + 1;
     }
-    List *list = get_adj_nodes(aux);
-    while(first(list) != NULL){
-      Node *aux2 = first(list);
-      push(S, aux2);
-      popCurrent(list);
-      aux2 = next(list);
-    }
-    free(initial);
-    *cont = *cont + 1;
-  }
-  return NULL; 
+
+    return NULL;
 }
+
 
 /*
 int main( int argc, char *argv[] ){
