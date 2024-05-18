@@ -123,9 +123,10 @@ Node* DFS(Node* n, int* cont) {
     push(S, n);
     *cont = 0;
 
-    while(get_size(S) != 0){
-        Node* aux = first(S);
+    while(first(S) != NULL){
+        Node* aux = top(S);
         pop(S);
+        (*cont)++;
 
         if(is_final(aux)){
             return aux;
@@ -139,7 +140,6 @@ Node* DFS(Node* n, int* cont) {
         }
 
         free(aux);
-        *cont = *cont + 1;
     }
 
     return NULL;
